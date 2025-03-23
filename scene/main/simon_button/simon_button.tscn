@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgf83o7wkvfmp"]
+
+[ext_resource type="Script" path="res://scene/main/simon_button/simon_button.gd" id="1_egwt0"]
+
+[node name="SimonButton" type="TextureButton"]
+offset_left = -93.0
+offset_top = -85.0
+offset_right = 105.0
+offset_bottom = 95.0
+script = ExtResource("1_egwt0")
+
+[node name="ButtonPolygon2D" type="Polygon2D" parent="."]
+position = Vector2(2, 1)
+polygon = PackedVector2Array(-2, -1, 199, -1, 199, 179, -2, 179)
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
