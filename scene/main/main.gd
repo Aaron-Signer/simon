@@ -6,6 +6,7 @@ var removable_button_queue: Array
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState.game_start.connect(start_game)
+	GameState.nav_main_menu.connect(load_main_menu)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -57,6 +58,7 @@ func reset_highlight(simon_button: SimonButton):
 	
 func start_game():
 	clear_children()
+	clear_simon_button_queues()
 	add_child(preload("res://scene/main/simon_board/simon_board.tscn").instantiate())
 	
 	SimonBottonSignals.simon_button_pressed.connect(simon_button_pressed)
@@ -83,4 +85,10 @@ func reset_highlight_for_all_simon_buttons():
 	for simon_button: SimonButton in simon_buttons:
 		simon_button.reset_highlight()
 
-		
+func load_main_menu():
+	clear_children()
+	add_child(preload("res://scene/main/menu/main_menu/main_menu.tscn").instantiate())
+	
+func clear_simon_button_queues():
+	final_button_queue = []
+	removable_button_queue = []
