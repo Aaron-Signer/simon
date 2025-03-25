@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dgf83o7wkvfmp"]
 
-[ext_resource type="Script" path="res://scene/main/simon_button/simon_button.gd" id="1_egwt0"]
+[ext_resource type="Script" path="res://scene/main/simon_board/simon_button/simon_button.gd" id="1_egwt0"]
 
 [node name="SimonButton" type="TextureButton"]
 modulate = Color(1, 1, 1, 0.494118)

@@ -1,49 +1,23 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2miaenvleamu"]
 
-[ext_resource type="PackedScene" uid="uid://dgf83o7wkvfmp" path="res://scene/main/simon_button/simon_button.tscn" id="1_l62u4"]
 [ext_resource type="Script" path="res://scene/main/main.gd" id="1_riw3q"]
+[ext_resource type="PackedScene" uid="uid://cnb5ai6rl1ohi" path="res://scene/main/menu/main_menu/main_menu.tscn" id="2_6gr88"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_riw3q")
 
-[node name="SimonBottons" type="Node" parent="."]
-
-[node name="TopLeftSimonButton" parent="SimonBottons" instance=ExtResource("1_l62u4")]
-modulate = Color(0.160784, 0.729412, 0.352941, 0.45098)
-offset_left = 225.0
-offset_top = 64.0
-offset_right = 426.0
-offset_bottom = 244.0
-button_id = "top_left"
-
-[node name="TopRightSimonButton2" parent="SimonBottons" instance=ExtResource("1_l62u4")]
-modulate = Color(0.980392, 0, 0.105882, 0.447059)
-offset_left = 606.0
-offset_top = 62.0
-offset_right = 804.0
-offset_bottom = 242.0
-button_id = "top_right"
-
-[node name="BottomLeftSimonButton" parent="SimonBottons" instance=ExtResource("1_l62u4")]
-modulate = Color(0.847059, 0.768627, 0, 0.447059)
-offset_left = 228.0
-offset_top = 297.0
-offset_right = 426.0
-offset_bottom = 477.0
-button_id = "bottom_left"
-
-[node name="BottomRightSimonButton2" parent="SimonBottons" instance=ExtResource("1_l62u4")]
-modulate = Color(0.137255, 1, 1, 0.447059)
-offset_left = 612.0
-offset_top = 300.0
-offset_right = 810.0
-offset_bottom = 480.0
-button_id = "bottom_right"
+[node name="MainMenu" parent="." instance=ExtResource("2_6gr88")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 596.0
+offset_top = 280.0
+offset_right = 596.0
+offset_bottom = 280.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
-
-[node name="ButtonSequenceTimer" type="Timer" parent="."]
-one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
