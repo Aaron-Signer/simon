@@ -1,45 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv75elj44iiyo"]
+[gd_scene load_steps=4 format=3 uid="uid://bv75elj44iiyo"]
 
 [ext_resource type="PackedScene" uid="uid://dgf83o7wkvfmp" path="res://scene/main/simon_board/simon_button/simon_button.tscn" id="1_7yspa"]
+[ext_resource type="Script" path="res://scene/main/simon_board/simon_board.gd" id="1_t61yd"]
 [ext_resource type="Texture2D" uid="uid://cwkn11b08bmjr" path="res://assets/menu/close-up-of-redwood-burl-wood-grain-texture-1.jpg" id="2_3anqm"]
 
 [node name="SimonBoard" type="Node2D"]
+script = ExtResource("1_t61yd")
 
 [node name="BackgroundSprite2D" type="Sprite2D" parent="."]
 position = Vector2(578.5, 325.5)
 scale = Vector2(0.5795, 0.489872)
 texture = ExtResource("2_3anqm")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 992.0
+offset_top = 229.0
+offset_right = 1062.0
+offset_bottom = 313.0
+theme_override_font_sizes/font_size = 61
+text = "00
+"
+
 [node name="SimonButtons" type="Node" parent="."]
 
 [node name="TopLeftSimonButton" parent="SimonButtons" instance=ExtResource("1_7yspa")]
-modulate = Color(0.160784, 0.729412, 0.352941, 0.45098)
 offset_left = 225.0
 offset_top = 64.0
 offset_right = 426.0
 offset_bottom = 244.0
+unlit_color = Color(0.0823529, 0.403922, 0.188235, 1)
+lit_color = Color(0.160784, 0.729412, 0.352941, 1)
 button_id = "top_left"
 
 [node name="TopRightSimonButton2" parent="SimonButtons" instance=ExtResource("1_7yspa")]
-modulate = Color(0.980392, 0, 0.105882, 0.447059)
 offset_left = 606.0
 offset_top = 62.0
 offset_right = 804.0
 offset_bottom = 242.0
+unlit_color = Color(0.630987, 0, 0.0514671, 1)
+lit_color = Color(0.980392, 0, 0.105882, 1)
 button_id = "top_right"
 
 [node name="BottomLeftSimonButton" parent="SimonButtons" instance=ExtResource("1_7yspa")]
-modulate = Color(0.847059, 0.768627, 0, 0.447059)
 offset_left = 228.0
 offset_top = 297.0
 offset_right = 426.0
 offset_bottom = 477.0
+unlit_color = Color(0.432465, 0.390081, 0, 1)
+lit_color = Color(0.847059, 0.768627, 0, 1)
 button_id = "bottom_left"
 
 [node name="BottomRightSimonButton2" parent="SimonButtons" instance=ExtResource("1_7yspa")]
-modulate = Color(0.137255, 1, 1, 0.447059)
 offset_left = 612.0
 offset_top = 300.0
 offset_right = 810.0
 offset_bottom = 480.0
+unlit_color = Color(0, 0.413817, 0.413986, 1)
+lit_color = Color(0.137255, 1, 1, 1)
 button_id = "bottom_right"

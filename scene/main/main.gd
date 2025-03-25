@@ -19,6 +19,7 @@ func simon_button_pressed(button_id: String):
 			game_end()
 		else:
 			if (removable_button_queue.front() == null):
+				GameState.update_score.emit(final_button_queue.size())
 				var new_simon_button = get_new_simon_button()
 				final_button_queue.push_back(new_simon_button)
 				removable_button_queue = final_button_queue.duplicate(true)

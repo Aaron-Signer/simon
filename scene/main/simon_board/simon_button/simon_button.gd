@@ -6,6 +6,9 @@ var color: Color
 
 var enabled: bool = true
 
+@export var unlit_color: Color
+@export var lit_color: Color
+
 @onready var button_polygon_2d = $ButtonPolygon2D
 @onready var timer = $Timer
 
@@ -13,6 +16,7 @@ var enabled: bool = true
 
 func _ready():
 	SimonBottonSignals.sequence_playing.connect(update_in_progress)
+	modulate = unlit_color
 	color = modulate
 	pass
 
@@ -26,12 +30,12 @@ func _process(delta):
 
 func _on_mouse_entered():
 	if enabled:
-		button_polygon_2d.modulate = Color(button_polygon_2d.modulate, 1)
+		button_polygon_2d.modulate = lit_color
 
 
 func _on_mouse_exited():
 	if enabled:
-		button_polygon_2d.modulate = Color(button_polygon_2d.modulate, .5)
+		button_polygon_2d.modulate = unlit_color
 
 func _on_pressed():
 	if enabled:
@@ -47,7 +51,7 @@ func reset_highlight():
 	button_polygon_2d.modulate = color
 	
 func highlight():
-	button_polygon_2d.modulate = Color(button_polygon_2d.modulate, 1)
+	button_polygon_2d.modulate = lit_color
 
 	
 func play_button():
