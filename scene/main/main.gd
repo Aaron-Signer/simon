@@ -30,7 +30,8 @@ func _on_timer_timeout():
 	#button_queue.push_back(button_list[randi_range(0, 3)])
 
 func get_new_simon_button() -> SimonButton:
-	var simon_buttons: Array = get_node("SimonBoard").get_children()
+	var simon_buttons: Array = get_node("SimonBoard/SimonButtons").get_children()
+	
 	var new_simon_button: SimonButton = simon_buttons[randi_range(0, simon_buttons.size()-1)]
 	#new_simon_button.play_highlight()
 	#return new_simon_button.button_id
@@ -80,10 +81,11 @@ func game_end():
 		
 		
 func reset_highlight_for_all_simon_buttons(): 
-	var simon_buttons: Array = get_node("SimonBoard").get_children()
+	var simon_buttons: Array = get_node("SimonBoard/SimonButtons").get_children()
 	
-	for simon_button: SimonButton in simon_buttons:
-		simon_button.reset_highlight()
+	for simon_button in simon_buttons:
+		if simon_button.has_method("reset_highlight"):
+			simon_button.reset_highlight()
 
 func load_main_menu():
 	clear_children()
