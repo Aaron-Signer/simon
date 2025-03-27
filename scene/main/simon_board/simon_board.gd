@@ -1,15 +1,15 @@
 extends Node2D
 
-@onready var label: Label = $Label
+@onready var score_label: Label = $ScoreLabel
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GameState.update_score.connect(update_score)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 func update_score(score: int):
-	label.text = str(score)
+	score_label.text = str(score)
+
+	if score < 10:
+		score_label.text = "0" + score_label.text
