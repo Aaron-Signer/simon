@@ -5,6 +5,7 @@ extends Node2D
 
 var final_button_queue: Array
 var removable_button_queue: Array
+var score: int
 
 
 func _ready():
@@ -15,7 +16,8 @@ func _process(delta):
 	pass
 
 
-func update_score(score: int):
+func update_score(new_score: int):
+	score = new_score
 	score_label.text = str(score)
 
 	if score < 10:
@@ -25,6 +27,7 @@ func simon_button_pressed(button_id: String):
 	var cur_button:SimonButton = removable_button_queue.pop_front()
 	if (cur_button != null):
 		if (cur_button.button_id != button_id):
+			save_score()
 			GameState.game_end.emit()
 		else:
 			if (removable_button_queue.front() == null):
@@ -87,3 +90,17 @@ func reset_highlight_for_all_simon_buttons():
 func clear_simon_button_queues():
 	final_button_queue = []
 	removable_button_queue = []
+	
+func save_score():
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.READ_WRITE)
+	print(save_file.get_position())
+	save_file.seek_end()
+	print(save_file.get_position())
+
+	var data = {
+		"player_name": GameState.player_name,
+		"player_score": score
+	}
+	
+	var json_string = JSON.stringify(data)
+	save_file.store_line(json_string)
