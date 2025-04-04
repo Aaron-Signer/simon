@@ -33,5 +33,16 @@ offset_right = 456.0
 offset_bottom = 432.0
 placeholder_text = "Player Name"
 
+[node name="HighscoreMenuButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 638.0
+offset_top = 341.0
+offset_right = 911.0
+offset_bottom = 418.0
+theme_override_font_sizes/font_size = 50
+text = "Highscores
+"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="text_changed" from="TextEdit" to="." method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="HighscoreMenuButton" to="." method="_on_highscore_menu_button_pressed"]

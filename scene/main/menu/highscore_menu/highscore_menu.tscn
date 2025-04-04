@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://xxxurmvxgd1w"]
+
+[ext_resource type="Script" path="res://scene/main/menu/highscore_menu/highscore_menu.gd" id="1_wy3wb"]
+
+[node name="HighscoreMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wy3wb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 308.0
+offset_top = 30.0
+offset_right = 909.0
+offset_bottom = 517.0
+theme_override_font_sizes/normal_font_size = 50
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 404.0
+offset_top = 531.0
+offset_right = 690.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 51
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

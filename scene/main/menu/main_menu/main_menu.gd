@@ -18,3 +18,7 @@ func _on_button_pressed():
 
 func _on_text_edit_text_changed():
 	GameState.player_name = text_edit.text
+
+
+func _on_highscore_menu_button_pressed():
+	GameState.load_highscore_menu.emit()

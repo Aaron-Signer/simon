@@ -8,6 +8,7 @@ func _ready():
 	GameState.nav_main_menu.connect(load_main_menu)
 	GameState.game_start.connect(game_start)
 	GameState.game_end.connect(game_end)
+	GameState.load_highscore_menu.connect(load_highscore_menu)
 
 func _process(delta):
 	pass
@@ -24,6 +25,10 @@ func game_end():
 func load_main_menu():
 	clear_children()
 	add_child(preload("res://scene/main/menu/main_menu/main_menu.tscn").instantiate())
+
+func load_highscore_menu():
+	clear_children()
+	add_child(preload("res://scene/main/menu/highscore_menu/highscore_menu.tscn").instantiate())
 
 func clear_children():
 	for child in get_children():
